@@ -22,7 +22,7 @@
     StepperView *stepper = [[StepperView alloc] init];
     
     stepper.startX = 30.0f; // Optional
-    stepper.startY = 400.0f; // Optional
+    stepper.startY = 300.0f; // Optional
     
     stepper.numberTotalStep = 4;
     
