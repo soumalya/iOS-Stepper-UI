@@ -19,5 +19,6 @@
 
 - (void)drawStepperInView:(UIView *)containerView;
 - (void)drawStepperMarkInView:(UIView *)containerView withNumber:(NSInteger)markDigit withStatus:(NSInteger)markStatus;
+- (void)setStepWithNumber:(int)step;
 
 @end

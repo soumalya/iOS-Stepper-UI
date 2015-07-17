@@ -10,6 +10,8 @@
 
 @interface ViewController : UIViewController
 
+- (IBAction)goPrevious:(id)sender;
+- (IBAction)goNext:(id)sender;
 
 @end
 

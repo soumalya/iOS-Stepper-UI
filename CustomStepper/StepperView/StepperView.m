@@ -75,6 +75,40 @@
     }
 }
 
+- (void)setStepWithNumber:(int)step {
+    
+    if (step <= 0) {
+        
+        _numberCompleted = 0;
+        step = 1;
+        
+    } else if (step > _numberTotalStep) {
+        
+        _numberCompleted = _numberTotalStep - 1;
+        _numberCurrent = _numberTotalStep + 1;
+        
+    } else {
+        _numberCompleted = step - 1;
+        _numberCurrent = step;
+    }
+    
+    CGFloat _stepperPipeFrontWidth = ((STEPPER_WIDTH / (_numberTotalStep - 1)) * _numberCompleted);
+    if (_stepperPipeFront) {
+        _stepperPipeFront.frame = CGRectMake(10.0f, 4.0f, _stepperPipeFrontWidth, (STEPPER_HEIGHT - 8.0f));
+    }
+    for (int i=1; i<=_numberTotalStep; i++) {
+        int status = MARK_UNTOUCHED;
+        if (i < _numberCurrent) {
+            status = MARK_COMPLETED;
+        } else if (i == _numberCurrent) {
+            status = MARK_CURRENT;
+        } else {
+            status = MARK_UNTOUCHED;
+        }
+        [self drawStepperMarkInView:_stepperPipeBG withNumber:i withStatus:status];
+    }
+}
+
 - (void)drawStepperMarkInView:(UIView *)containerView withNumber:(NSInteger)markDigit withStatus:(NSInteger)markStatus {
     
     CGFloat markStartX = 0;
